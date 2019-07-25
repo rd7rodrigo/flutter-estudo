@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 void main() => runApp(MyApp());
@@ -56,15 +57,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: PreferredSize(
         child: AppBar(
-          title: Column(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(
-                Icons.camera,
-                size: 50.0,
+              Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.camera,
+                    size: 50.0,
+                  )
+                ],
               )
             ],
-            // mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end
           )
           ,
           actionsIconTheme: IconThemeData(color: Colors.amber),
@@ -107,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Ola haahha',
+              'Levant',
               style: TextStyle(color: Colors.amber, fontSize: 52)
             ),
             Text(
@@ -145,20 +149,84 @@ class _MyHomePageState extends State<MyHomePage> {
       )
       ,bottomNavigationBar: BottomAppBar(
         color: Colors.amber,
-        child: Container(
-          height: 70.0, 
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Icon(
-                Icons.verified_user,
-                size: 37,
-                color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(left: 10.0, top: 5.0),
+              height: 50.0, 
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Icon(
+                        Icons.account_circle,
+                        size: 25,
+                        color: Colors.white,
+                      ),
+                      Text('Meu Perfil', style: TextStyle(color: Colors.white, fontSize: 12)),
+                    ],
+                  ),
+                ],
               ),
-              Text('Meu Perfil', style: TextStyle(color: Colors.white, fontSize: 16)),
-            ],
-          ),
-        )
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 10.0, top: 5.0),
+              height: 50.0, 
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Icon(
+                        Icons.layers,
+                        size: 25,
+                        color: Colors.white,
+                      ),
+                      Text('Histórico', style: TextStyle(color: Colors.white, fontSize: 12)),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 105.0, top: 5.0),
+              height: 50.0, 
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Icon(
+                        Icons.sync,
+                        size: 25,
+                        color: Colors.white,
+                      ),
+                      Text('Sincronizar', style: TextStyle(color: Colors.white, fontSize: 12)),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 5.0),
+              height: 50.0, 
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Icon(
+                        Icons.exit_to_app ,
+                        size: 25,
+                        color: Colors.white,
+                      ),
+                      Text('Sair', style: TextStyle(color: Colors.white, fontSize: 12)),
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+       
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
