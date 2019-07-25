@@ -48,28 +48,43 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-//     // Esse método é executado novamente toda vez que setState é chamado, por exemplo, como concluído
+//      // Esse método é executado novamente toda vez que setState é chamado, por exemplo, como concluído
 //      // pelo método _incrementCounter acima.
 //      // A estrutura Flutter foi otimizada para executar novamente os métodos de construção
 //      // rápido, para que você possa reconstruir qualquer coisa que precise ser atualizada
 //      // do que ter que alterar individualmente instâncias de widgets.
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation menu',
-          onPressed: null,
-        ),
-        // Aqui pegamos o valor do objeto MyHomePage que foi criado por
-//          // o método App.build e use-o para definir nosso título de appbar.
-        title: Text(widget.title),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            tooltip: 'Buscar',
-            onPressed: null,
+      appBar: PreferredSize(
+        child: AppBar(
+          title: Column(
+            children: <Widget>[
+              Icon(
+                Icons.camera,
+                size: 50.0,
+              )
+            ],
+            // mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end
           )
-        ],
+          ,
+          actionsIconTheme: IconThemeData(color: Colors.amber),
+          // leading: IconButton(
+          //   icon: Icon(Icons.menu),
+          //   tooltip: 'Navigation menu',
+          //   onPressed: null,
+          // ),
+          // Aqui pegamos o valor do objeto MyHomePage que foi criado por
+  //          // o método App.build e use-o para definir nosso título de appbar.
+          // title: Text(widget.title),
+          // actions: <Widget>[
+          //   IconButton(
+          //     icon: Icon(Icons.search),
+          //     tooltip: 'Buscar',
+          //     onPressed: null,
+          //   )
+          // ],
+        ), 
+        preferredSize: Size.fromHeight(100.0),  
       ),
       body: Center(
         // Center é um widget de layout. Leva um único filho e o posiciona
@@ -105,11 +120,47 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Incrementar',
-        child: Icon(Icons.adb, size: 52,color: Colors.purple,),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: Container(
+        height: 80.0,
+        width: 80.0,
+        child: FittedBox(
+          
+          child: FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Incrementar',
+           
+            child: InkWell(
+                child: Padding(
+                  padding: EdgeInsets.all(2.0),
+                  child: Icon(
+                    Icons.camera, size: 52,color: Colors.amber,
+                  ),
+                ),
+                borderRadius: BorderRadius.circular(90.0),
+            ),
+            backgroundColor: Colors.white,
+          
+          ), // This trailing comma makes auto-formatting nicer for build methods.,
+        )
+      )
+      ,bottomNavigationBar: BottomAppBar(
+        color: Colors.amber,
+        child: Container(
+          height: 70.0, 
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Icon(
+                Icons.verified_user,
+                size: 37,
+                color: Colors.white,
+              ),
+              Text('Meu Perfil', style: TextStyle(color: Colors.white, fontSize: 16)),
+            ],
+          ),
+        )
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
