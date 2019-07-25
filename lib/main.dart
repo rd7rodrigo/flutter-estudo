@@ -57,18 +57,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: PreferredSize(
         child: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Icon(
-                    Icons.camera,
-                    size: 50.0,
-                  )
-                ],
-              )
-            ],
+          title: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Icon(
+                      Icons.adjust,
+                      size: 40.0,
+                    )
+                  ],
+                )
+              ],
+            ),
           )
           ,
           actionsIconTheme: IconThemeData(color: Colors.amber),
@@ -125,22 +127,24 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: Container(
-        height: 80.0,
-        width: 80.0,
+        height: 75.0,
+        width: 75.0,
+        // padding: EdgeInsets.all(2.0),
+        margin: const EdgeInsets.all(3.0),
+        decoration: myBoxDecoration(),
         child: FittedBox(
           
           child: FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Incrementar',
            
-            child: InkWell(
-                child: Padding(
-                  padding: EdgeInsets.all(2.0),
-                  child: Icon(
-                    Icons.camera, size: 52,color: Colors.amber,
+            child: Container(
+              decoration: borderIcon(),
+                padding: EdgeInsets.all(2.0),
+                child: Icon(
+                    Icons.camera, size: 37,color: Colors.white,
                   ),
-                ),
-                borderRadius: BorderRadius.circular(90.0),
+                // borderRadius: BorderRadius.circular(90.0),
             ),
             backgroundColor: Colors.white,
           
@@ -231,4 +235,29 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+}
+
+BoxDecoration myBoxDecoration() {
+  return BoxDecoration(
+    border: Border.all(
+      color: Colors.amber,
+      width: 1, //                   <--- border width here
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(105.0) //     
+    )
+  );
+}
+
+BoxDecoration borderIcon() {
+  return BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+      colors: [Colors.amberAccent, Colors.amber]
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(100.0) //     
+    )
+  );
 }
