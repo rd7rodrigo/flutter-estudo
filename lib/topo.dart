@@ -16,7 +16,7 @@ class _TopoState extends State<Topo> {
             color: Colors.black,
             size: 60.0,
           ),
-      height: 250,
+      height: 230,
     );
   }
 }
@@ -24,7 +24,7 @@ class _TopoState extends State<Topo> {
 BoxDecoration gradiente() {
   return BoxDecoration(
     gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
-      Colors.amberAccent, Colors.amber
+      Colors.yellow, Colors.amber
     ])
   );
 }

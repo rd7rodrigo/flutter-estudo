@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-import 'button.dart';
+import 'botton.dart';
+// import 'button.dart';
+import 'listmenu.dart';
 import 'topo.dart';
 
 void main() => runApp(MyApp());
@@ -62,138 +64,50 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Topo(),
         preferredSize: Size.fromHeight(120.0),  
       ),
-      body: Center(
-        // Center é um widget de layout. Leva um único filho e o posiciona
-//          // no meio do pai.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Text(
-              'Olá Leonel!',
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),
-            ),
-            Padding(
-              child: Text(
-                'Fique a vontade para começar a salvar os clippings de notícias espalhadas por aí.'
+      body: Hero(
+        tag: 'Main',
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10), 
+                child: Text(
+                  'Olá Leonel!',
+                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,),
+                ),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-            ),
-            ButtonText(text: "Botão 01", iconData: Icons.camera, color: Colors.white,),
-            ButtonText(text: "Botão 02", iconData: Icons.insert_emoticon, color: Colors.white,),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            
-          ],
+              
+              Padding(
+                child: Text(
+                  'Fique a vontade para começar a salvar os clippings de notícias espalhadas por aí.'
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+              ),
+              ListMenu(text: "Capturar", subtitulo: "Capture os clipping de notícias pelo mundo.", iconData: Icons.camera, color: Colors.white,),
+              ListMenu(text: "Capturados", subtitulo: "Veja os clippings capturados pela equipe", iconData: Icons.layers, color: Colors.white,),
+            ],
+          ),
         ),
       ),
       floatingActionButton: Container(
         height: 75.0,
         width: 75.0,
-        // padding: EdgeInsets.all(2.0),
-        margin: const EdgeInsets.all(3.0),
         decoration: myBoxDecoration(),
-        child: FittedBox(
-          
-          child: FloatingActionButton(
+        child: FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Incrementar',
-           
             child: Container(
               decoration: borderIcon(),
               padding: EdgeInsets.all(2.0),
               child: Icon(
-                Icons.camera, size: 37,color: Colors.white,
+                Icons.camera, size: 51,color: Colors.white,
               ),
-              // borderRadius: BorderRadius.circular(90.0),
             ),
             backgroundColor: Colors.white,
-          
-          ), // This trailing comma makes auto-formatting nicer for build methods.,
         )
       )
-      ,bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(left: 10.0, top: 5.0),
-              height: 50.0, 
-              child: Column(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.account_circle,
-                        size: 25,
-                        color: Colors.amber,
-                      ),
-                      Text('Meu Perfil', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 10.0, top: 5.0),
-              height: 50.0, 
-              child: Column(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.layers,
-                        size: 25,
-                        color: Colors.amber,
-                      ),
-                      Text('Histórico', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 105.0, top: 5.0),
-              height: 50.0, 
-              child: Column(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.sync,
-                        size: 25,
-                        color: Colors.amber,
-                      ),
-                      Text('Sincronizar', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 5.0),
-              height: 50.0, 
-              child: Column(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.exit_to_app ,
-                        size: 25,
-                        color: Colors.amber,
-                      ),
-                      Text('Sair', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-       
-      ),
+      ,bottomNavigationBar: Botton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

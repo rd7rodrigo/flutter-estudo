@@ -23,15 +23,23 @@ class _ButtonTextState extends State<ButtonText> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // Column(
+            //   textDirection: TextDirection.ltr,
+            //   children: <Widget>[
+            //     Text(widget.text),
+            // ],),
             Expanded(
               child: Icon(widget.iconData),
               flex: 1,
             ),
+            
             Expanded(
-              child: Row(children: <Widget>[
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
                 Text(widget.text),
               ],),
-              flex: 3,
+              flex: 5,
             )
         ],),
     );
@@ -43,7 +51,10 @@ BoxDecoration borderIcon(color) {
   return BoxDecoration(
     boxShadow: [
       BoxShadow(
-        color: Colors.amber, offset: Offset.fromDirection(0.2, 0.1), blurRadius: 0.2, spreadRadius: 0.2
+        color: Colors.black.withOpacity(0.2), 
+        offset: Offset.fromDirection(1.1, 0.9), 
+        blurRadius: 0.4, 
+        spreadRadius: 0.1
       ),
     ],
     color: color,
