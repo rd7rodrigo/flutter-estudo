@@ -152,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
         )
       )
       ,bottomNavigationBar: BottomAppBar(
-        color: Colors.amber,
+        color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -166,9 +166,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icon(
                         Icons.account_circle,
                         size: 25,
-                        color: Colors.white,
+                        color: Colors.amber,
                       ),
-                      Text('Meu Perfil', style: TextStyle(color: Colors.white, fontSize: 12)),
+                      Text('Meu Perfil', style: TextStyle(color: Colors.grey, fontSize: 12)),
                     ],
                   ),
                 ],
@@ -184,9 +184,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icon(
                         Icons.layers,
                         size: 25,
-                        color: Colors.white,
+                        color: Colors.amber,
                       ),
-                      Text('Histórico', style: TextStyle(color: Colors.white, fontSize: 12)),
+                      Text('Histórico', style: TextStyle(color: Colors.grey, fontSize: 12)),
                     ],
                   )
                 ],
@@ -202,9 +202,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icon(
                         Icons.sync,
                         size: 25,
-                        color: Colors.white,
+                        color: Colors.amber,
                       ),
-                      Text('Sincronizar', style: TextStyle(color: Colors.white, fontSize: 12)),
+                      Text('Sincronizar', style: TextStyle(color: Colors.grey, fontSize: 12)),
                     ],
                   )
                 ],
@@ -220,9 +220,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icon(
                         Icons.exit_to_app ,
                         size: 25,
-                        color: Colors.white,
+                        color: Colors.amber,
                       ),
-                      Text('Sair', style: TextStyle(color: Colors.white, fontSize: 12)),
+                      Text('Sair', style: TextStyle(color: Colors.grey, fontSize: 12)),
                     ],
                   )
                 ],
