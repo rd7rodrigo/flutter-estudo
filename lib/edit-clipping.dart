@@ -10,6 +10,9 @@ class _EditClippingState extends State<EditClipping> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('First Screen'),
+      ),
       body: GestureDetector(
         child: Center(
           child: Hero(

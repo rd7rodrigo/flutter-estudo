@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:widgets/topo.dart';
 
 import 'edit-clipping.dart';
 
@@ -12,8 +13,9 @@ class _NovoClippingState extends State<NovoClipping> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('First Screen'),
+      appBar: PreferredSize(
+        child: Topo(),
+        preferredSize: Size.fromHeight(120.0),  
       ),
       body: GestureDetector(
         child: Hero(
