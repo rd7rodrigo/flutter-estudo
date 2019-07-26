@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+import 'button.dart';
+import 'topo.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -56,73 +59,32 @@ class _MyHomePageState extends State<MyHomePage> {
 //      // do que ter que alterar individualmente instâncias de widgets.
     return Scaffold(
       appBar: PreferredSize(
-        child: AppBar(
-          title: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Icon(
-                      Icons.adjust,
-                      size: 40.0,
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
-          ,
-          actionsIconTheme: IconThemeData(color: Colors.amber),
-          // leading: IconButton(
-          //   icon: Icon(Icons.menu),
-          //   tooltip: 'Navigation menu',
-          //   onPressed: null,
-          // ),
-          // Aqui pegamos o valor do objeto MyHomePage que foi criado por
-  //          // o método App.build e use-o para definir nosso título de appbar.
-          // title: Text(widget.title),
-          // actions: <Widget>[
-          //   IconButton(
-          //     icon: Icon(Icons.search),
-          //     tooltip: 'Buscar',
-          //     onPressed: null,
-          //   )
-          // ],
-        ), 
-        preferredSize: Size.fromHeight(100.0),  
+        child: Topo(),
+        preferredSize: Size.fromHeight(120.0),  
       ),
       body: Center(
         // Center é um widget de layout. Leva um único filho e o posiciona
 //          // no meio do pai.
         child: Column(
-          // Coluna também é widget de layout. É preciso uma lista de crianças e
-//            // organiza-os verticalmente. Por padrão, ele dimensiona-se para caber
-//            // crianças horizontalmente e tenta ser tão alto quanto seu pai.
-//            //
-//            // Invoque "debug painting" (pressione "p" no console, escolha o
-//            // "Toggle Debug Paint" ação do Inspetor Flutter no Android
-//            // Studio ou o comando "Toggle Debug Paint" no código do Visual Studio)
-//            // para ver o wireframe de cada widget.
-//            //
-//            // A coluna tem várias propriedades para controlar como ele se dimensiona e
-//            // como posiciona seus filhos. Aqui nós usamos mainAxisAlignment para
-//            // centra os filhos verticalmente; o eixo principal aqui é a vertical
-//            // eixo porque as colunas são verticais (o eixo transversal seria
-//            // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
-              'Levant',
-              style: TextStyle(color: Colors.amber, fontSize: 52)
+              'Olá Leonel!',
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),
             ),
-            Text(
-              'You have pushed the button this many times:',
+            Padding(
+              child: Text(
+                'Fique a vontade para começar a salvar os clippings de notícias espalhadas por aí.'
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
             ),
+            ButtonText(text: "Botão 01", iconData: Icons.camera, color: Colors.white,),
+            ButtonText(text: "Botão 02", iconData: Icons.insert_emoticon, color: Colors.white,),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            
           ],
         ),
       ),
@@ -140,11 +102,11 @@ class _MyHomePageState extends State<MyHomePage> {
            
             child: Container(
               decoration: borderIcon(),
-                padding: EdgeInsets.all(2.0),
-                child: Icon(
-                    Icons.camera, size: 37,color: Colors.white,
-                  ),
-                // borderRadius: BorderRadius.circular(90.0),
+              padding: EdgeInsets.all(2.0),
+              child: Icon(
+                Icons.camera, size: 37,color: Colors.white,
+              ),
+              // borderRadius: BorderRadius.circular(90.0),
             ),
             backgroundColor: Colors.white,
           
